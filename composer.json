@@ -1,0 +1,26 @@
+{
+    "name": "xolof/weather-module",
+    "description": "Weather module.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Olof Johansson",
+            "email": "oljh19@student.bth.se",
+            "homepage": "https://www.oljo.xyz",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Anax\\": "src/"
+        }
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    }
+}
