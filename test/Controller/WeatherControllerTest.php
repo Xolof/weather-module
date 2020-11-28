@@ -23,9 +23,7 @@ class WeatherControllerTest extends TestCase
         // Setup di
         $di = new DIFactoryConfig();
         $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
+        $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         $this->di = $di;
     }
@@ -47,7 +45,7 @@ class WeatherControllerTest extends TestCase
 
         $body = $res->getBody();
 
-        $exp = "| ramverk1</title>";
+        $exp = "<h2>Väder</h2>";
         $this->assertContains($exp, $body);
     }
 

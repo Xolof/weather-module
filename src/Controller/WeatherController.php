@@ -14,7 +14,7 @@ use \stdClass;
 use \Exception;
 
 /**
-* A controller for validating an IP-adress.
+* A controller for getting weather info.
  */
 class WeatherController implements ContainerInjectableInterface
 {
