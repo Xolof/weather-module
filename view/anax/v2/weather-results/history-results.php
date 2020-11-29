@@ -58,5 +58,5 @@ EOD;
     var locationName = "<?= $content["location"]["name"] ?>";
 </script>
 <script src ="js/leaflet.js"></script>
-<script src ="js/myMap.js"></script>
+<script src ="js/weather-module.js"></script>
 <?php endif; ?>
