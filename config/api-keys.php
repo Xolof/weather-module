@@ -2,7 +2,7 @@
 /**
  * Configuration file.
  */
-if (getenv("MY_TRAVIS_ENV")) {
+if (getenv("MY_TRAVIS_ENV") || getenv("SCRUTINIZER")) {
     return [
         "geotag-key" => getenv("GEOTAG_KEY"),
         "weather-key" => getenv("WEATHER_KEY"),
