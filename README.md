@@ -1,4 +1,4 @@
-# weather-module
+# Weather-module
 
 ## Installation
 
