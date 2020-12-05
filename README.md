@@ -8,13 +8,17 @@
 
 ## Installation
 
+Install the module from Packagist.
+
+`composer require xolof/weather-module`
+
 ### Copy files
 
 Copy config files.
 
 `rsync -av vendor/xolof/weather-module/config/ ./config/`
 
-Copy classes.
+Copy classes. (?)
 
 `rsync -av vendor/xolof/weather-module/src/ ./src/`
 
