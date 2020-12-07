@@ -9,7 +9,7 @@ return [
         [
             "info" => "Validate IP address.",
             "mount" => "weather",
-            "handler" => "\Anax\Controller\WeatherController",
+            "handler" => "\Xolof\WeatherModule\WeatherController",
         ],
     ]
 ];
