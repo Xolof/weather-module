@@ -4,6 +4,7 @@ namespace Xolof\WeatherModule;
 
 // use \Exception;
 use \DateTime;
+use \Exception;
 
 /**
  * A class to validate Ip-adresses.

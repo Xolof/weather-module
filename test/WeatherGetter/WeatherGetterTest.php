@@ -120,7 +120,7 @@ class WeatherGetterTest extends TestCase
                 "Invalid URL"
             );
 
-            $res = $weatherGetter->getForecast("0,0");
+            $weatherGetter->getForecast("0,0");
         } catch (\Exception $e) {
             $errorHappened = true;
         }
@@ -143,7 +143,7 @@ class WeatherGetterTest extends TestCase
                 "Invalid URL"
             );
 
-            $res = $weatherGetter->getHistory("0,0");
+            $weatherGetter->getHistory("0,0");
         } catch (\Exception $e) {
             $errorHappened = true;
         }

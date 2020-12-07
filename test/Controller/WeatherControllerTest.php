@@ -176,12 +176,11 @@ class WeatherControllerTest extends TestCase
     /**
     * Test apiInfoAction
     */
-    public function testApiInfoAction() {
+    public function testApiInfoAction()
+    {
         // Setup the controller
         $controller = new WeatherController();
         $controller->setDI($this->di);
-
-        $request = $this->di->get("request");
 
         $res = $controller->apiInfoAction();
 
@@ -196,12 +195,11 @@ class WeatherControllerTest extends TestCase
     /**
     * Test checkKeys
     */
-    public function testCheckKeys() {
+    public function testCheckKeys()
+    {
         // Setup the controller
         $controller = new WeatherController();
         $controller->setDI($this->di);
-
-        $request = $this->di->get("request");
 
         // No parameters
         $res = $controller->checkKeys(null, null, null);
