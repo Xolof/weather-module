@@ -123,9 +123,9 @@ class WeatherControllerTest extends TestCase
 
 
     /**
-     * Test the method "indexActionPost", invalid input.
+     * Test the method "indexActionPost", invalid location.
      */
-    public function testInvalidIndexActionPost()
+    public function testIndexActionPostInvalidLocation()
     {
         // Setup the controller
         $controller = new WeatherController();
@@ -148,5 +148,71 @@ class WeatherControllerTest extends TestCase
 
         $exp = "Sök igen";
         $this->assertContains($exp, $body);
+    }
+
+
+    /**
+     * Test the method "indexActionPost", no parameters.
+     */
+    public function testIndexActionPostNoParams()
+    {
+        // Setup the controller
+        $controller = new WeatherController();
+        $controller->setDI($this->di);
+
+        $request = $this->di->get("request");
+
+        $request->setPost("location", null);
+        $request->setPost("format", null);
+        $request->setPost("when", null);
+
+        $res = $controller->indexActionPost();
+
+        $exp = "Invalid input. Check your request.";
+        $this->assertContains($exp, $res);
+    }
+
+
+    /**
+    * Test apiInfoAction
+    */
+    public function testApiInfoAction() {
+        // Setup the controller
+        $controller = new WeatherController();
+        $controller->setDI($this->di);
+
+        $request = $this->di->get("request");
+
+        $res = $controller->apiInfoAction();
+
+        $this->assertInstanceOf("\Anax\Response\Response", $res);
+
+        $body = $res->getBody();
+
+        $exp = "Dokumentation för API";
+        $this->assertContains($exp, $body);
+    }
+
+    /**
+    * Test checkKeys
+    */
+    public function testCheckKeys() {
+        // Setup the controller
+        $controller = new WeatherController();
+        $controller->setDI($this->di);
+
+        $request = $this->di->get("request");
+
+        // No parameters
+        $res = $controller->checkKeys(null, null, null);
+        $this->assertEquals($res, false);
+
+        // $format is not json or html
+        $res = $controller->checkKeys("some location", "xml", "history");
+        $this->assertEquals($res, false);
+
+        // $when has an invalid value
+        $res = $controller->checkKeys("some location", "json", "invalid time");
+        $this->assertEquals($res, false);
     }
 }

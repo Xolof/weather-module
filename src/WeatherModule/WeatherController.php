@@ -121,7 +121,12 @@ class WeatherController implements ContainerInjectableInterface
     {
         $keyHolder = $this->di->get("weather-key");
 
-        $weatherGetter = new WeatherGetter($keyHolder);
+        $weatherGetter = new WeatherGetter(
+            $keyHolder,
+            "https://api.openweathermap.org/data/2.5/forecast?lat=",
+            "https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=",
+            "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="
+        );
         $weatherFormatter = new WeatherFormatter();
 
         try {

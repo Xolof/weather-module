@@ -35,7 +35,12 @@ class WeatherGetterTest extends TestCase
     {
         $keyHolder = $this->di->get("weather-key");
 
-        $weatherGetter = new WeatherGetter($keyHolder);
+        $weatherGetter = new WeatherGetter(
+            $keyHolder,
+            "https://api.openweathermap.org/data/2.5/forecast?lat=",
+            "https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=",
+            "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="
+        );
 
         $res = $weatherGetter->getForecast("46.50,12.50");
 
@@ -49,7 +54,12 @@ class WeatherGetterTest extends TestCase
     {
         $keyHolder = $this->di->get("weather-key");
 
-        $weatherGetter = new WeatherGetter($keyHolder);
+        $weatherGetter = new WeatherGetter(
+            $keyHolder,
+            "https://api.openweathermap.org/data/2.5/forecast?lat=",
+            "https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=",
+            "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="
+        );
 
         $res = $weatherGetter->getHistory("46.50,12.50");
 
@@ -57,13 +67,18 @@ class WeatherGetterTest extends TestCase
     }
 
     /**
-     * Test getForecast with error
+     * Test getForecast with invalid coordinates
      */
-    public function testGetForecastInvalid()
+    public function testGetForecastInvalidCoordinates()
     {
         $keyHolder = $this->di->get("weather-key");
 
-        $weatherGetter = new WeatherGetter($keyHolder);
+        $weatherGetter = new WeatherGetter(
+            $keyHolder,
+            "https://api.openweathermap.org/data/2.5/forecast?lat=",
+            "https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=",
+            "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="
+        );
 
         $res = $weatherGetter->getForecast("-200,-200");
 
@@ -71,16 +86,67 @@ class WeatherGetterTest extends TestCase
     }
 
     /**
-     * Test getHistory with error
+     * Test getHistory with invalid coordinates
      */
-    public function testGetHistoryInvalid()
+    public function testGetHistoryInvalidCoordinates()
     {
         $keyHolder = $this->di->get("weather-key");
 
-        $weatherGetter = new WeatherGetter($keyHolder);
+        $weatherGetter = new WeatherGetter(
+            $keyHolder,
+            "https://api.openweathermap.org/data/2.5/forecast?lat=",
+            "https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=",
+            "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="
+        );
 
         $res = $weatherGetter->getHistory("-200,-200");
 
         $this->assertEquals("400", $res["0"]["cod"]);
+    }
+
+    /**
+     * Test getForecast with invalid URL
+     */
+    public function testGetForecastInvalidURL()
+    {
+        $errorHappened = false;
+        try {
+            $keyHolder = $this->di->get("weather-key");
+
+            $weatherGetter = new WeatherGetter(
+                $keyHolder,
+                "Invalid forecast URL",
+                "Invalid URL",
+                "Invalid URL"
+            );
+
+            $res = $weatherGetter->getForecast("0,0");
+        } catch (\Exception $e) {
+            $errorHappened = true;
+        }
+        $this->assertTrue($errorHappened);
+    }
+
+    /**
+     * Test getHistory with invalid URL
+     */
+    public function testGetHistoryInvalidURL()
+    {
+        $errorHappened = false;
+        try {
+            $keyHolder = $this->di->get("weather-key");
+
+            $weatherGetter = new WeatherGetter(
+                $keyHolder,
+                "Invalid URL",
+                "Invalid URL",
+                "Invalid URL"
+            );
+
+            $res = $weatherGetter->getHistory("0,0");
+        } catch (\Exception $e) {
+            $errorHappened = true;
+        }
+        $this->assertTrue($errorHappened);
     }
 }
