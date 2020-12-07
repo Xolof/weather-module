@@ -18,10 +18,6 @@ Copy config files.
 
 `rsync -av vendor/xolof/weather-module/config/ ./config/`
 
-Copy classes. (?)
-
-`rsync -av vendor/xolof/weather-module/src/ ./src/`
-
 Copy tests.
 
 `rsync -av vendor/xolof/weather-module/test/ ./test/`
