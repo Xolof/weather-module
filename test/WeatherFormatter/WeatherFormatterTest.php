@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\WeatherFormatter;
+namespace Xolof\WeatherModule;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
@@ -24,7 +24,7 @@ class WeatherFormatterTest extends TestCase
 
         // Use a different cache dir for unit test
         $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
-        
+
         $this->di = $di;
     }
 

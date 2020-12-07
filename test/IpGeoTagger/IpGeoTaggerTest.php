@@ -1,10 +1,10 @@
 <?php
 
-namespace Anax\IpGeoTagger;
+namespace Xolof\WeatherModule;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
-use Anax\KeyHolder\KeyHolder;
+use Xolof\WeatherModule\KeyHolder;
 use \Exception;
 
 /**
@@ -26,7 +26,7 @@ class IpGeoTaggerTest extends TestCase
 
         // Use a different cache dir for unit test
         $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
-        
+
         $this->di = $di;
     }
 

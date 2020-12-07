@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\IpValidator;
+namespace Xolof\WeatherModule;
 
 /**
  * A class to validate Ip-adresses.

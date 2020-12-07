@@ -8,7 +8,7 @@ return [
         "geotag-key" => [
             "shared" => true,
             "callback" => function () {
-                $keyHolder = new \Anax\KeyHolder\KeyHolder();
+                $keyHolder = new \Xolof\WeatherModule\KeyHolder();
 
                 // Load the configuration files
                 $cfg = $this->get("configuration");

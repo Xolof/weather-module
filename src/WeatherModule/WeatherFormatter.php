@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\WeatherFormatter;
+namespace Xolof\WeatherModule;
 
 use \DateTime;
 

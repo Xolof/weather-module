@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\IpGeoTagger;
+namespace Xolof\WeatherModule;
 
 use \Exception;
 

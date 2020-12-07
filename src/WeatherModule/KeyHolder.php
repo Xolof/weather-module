@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\KeyHolder;
+namespace Xolof\WeatherModule;
 
 /**
  * A class to hold valu for API-key.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\LatlonValidator;
+namespace Xolof\WeatherModule;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;

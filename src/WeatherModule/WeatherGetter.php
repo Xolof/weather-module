@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\WeatherGetter;
+namespace Xolof\WeatherModule;
 
 use \Exception;
 use \DateTime;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\Controller;
+namespace Xolof\WeatherModule;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;

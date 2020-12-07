@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\latlonValidator;
+namespace Xolof\WeatherModule;
 
 /**
  * A class to validate latitude and longitude coordinates.

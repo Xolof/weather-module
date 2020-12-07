@@ -1,15 +1,15 @@
 <?php
 
-namespace Anax\Controller;
+namespace Xolof\WeatherModule;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Anax\IpValidator\IpValidator;
-use Anax\LatlonValidator\LatlonValidator;
-use Anax\IpGeoTagger\IpGeoTagger;
-use Anax\IpGetter\IpGetter;
-use Anax\WeatherGetter\WeatherGetter;
-use Anax\WeatherFormatter\WeatherFormatter;
+use Xolof\WeatherModule\IpValidator;
+use Xolof\WeatherModule\LatlonValidator;
+use Xolof\WeatherModule\IpGeoTagger;
+use Xolof\WeatherModule\IpGetter;
+use Xolof\WeatherModule\WeatherGetter;
+use Xolof\WeatherModule\WeatherFormatter;
 use \stdClass;
 use \Exception;
 
