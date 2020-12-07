@@ -119,6 +119,8 @@ class WeatherController implements ContainerInjectableInterface
 
     private function getData($coordinates, $when)
     {
+        $url = $this->di->get("url");
+
         $keyHolder = $this->di->get("weather-key");
 
         $weatherGetter = new WeatherGetter(

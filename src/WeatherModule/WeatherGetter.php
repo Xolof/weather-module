@@ -2,7 +2,7 @@
 
 namespace Xolof\WeatherModule;
 
-use \Exception;
+// use \Exception;
 use \DateTime;
 
 /**
@@ -34,7 +34,7 @@ class WeatherGetter
         $res = $this->forecastCurl($url, $lat, $lon);
 
         if (in_array(null, $res)) {
-            throw new Exception("Error Processing Request", 1);
+            throw new \Exception("Error Processing Request", 1);
         }
 
         return $res;
@@ -66,7 +66,7 @@ class WeatherGetter
         $res = $this->historyCurl($timeStamps, $url, $lat, $lon);
 
         if (in_array(null, $res)) {
-            throw new Exception("Error Processing Request", 1);
+            throw new \Exception("Error Processing Request", 1);
         }
 
         return $res;
@@ -95,7 +95,7 @@ class WeatherGetter
             }
 
             // Get the locations name
-            $locationURL = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=$lat&lon=$lon";
+            $locationURL = $this->locationBaseURL . "$lat&lon=$lon";
             $locationCh = curl_init($locationURL);
 
             $userAgent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/22.0.1216.0 Safari/537.2';
@@ -127,15 +127,18 @@ class WeatherGetter
             }
 
             return $response;
-        } catch (Exception $e) {
-            trigger_error(
-                sprintf(
-                    'Curl failed with error #%d: %s',
-                    $e->getCode(),
-                    $e->getMessage()
-                ),
-                E_USER_ERROR
-            );
+        } catch (\Exception $e) {
+            throw new \Exception("Curl failed", 1);
+
+            /** Alternative */
+            // trigger_error(
+            //     sprintf(
+            //         'Curl failed with error #%d: %s',
+            //         $e->getCode(),
+            //         $e->getMessage()
+            //     ),
+            //     E_USER_ERROR
+            // );
         }
     }
 
@@ -188,15 +191,18 @@ class WeatherGetter
             }
 
             return $response;
-        } catch (Exception $e) {
-            trigger_error(
-                sprintf(
-                    'Curl failed with error #%d: %s',
-                    $e->getCode(),
-                    $e->getMessage()
-                ),
-                E_USER_ERROR
-            );
+        } catch (\Exception $e) {
+            throw new \Exception("Curl failed", 1);
+
+            /** Alternative */
+            // trigger_error(
+            //     sprintf(
+            //         'Curl failed with error #%d: %s',
+            //         $e->getCode(),
+            //         $e->getMessage()
+            //     ),
+            //     E_USER_ERROR
+            // );
         }
     }
 }
